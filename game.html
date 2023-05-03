@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sim Companies</title>
+</head>
+<body>
+  <h1>Sim Companies</h1>
+  <p>This is a simple Sim Companies game in HTML and JavaScript.</p>
+  <p>You can start by creating a company.</p>
+  <form id="create-company-form">
+    <input type="text" id="company_name" placeholder="Company Name">
+    <button id="create-company">Create Company</button>
+  </form>
+  <script>
+    // Define the game object with an empty companies array.
+    const game = {
+      companies: []
+    };
+
+    function createCompany() {
+      // Get the company name from the form.
+      const companyName = document.getElementById("company_name").value;
+
+      // Create a new company object.
+      const company = {
+        name: companyName,
+        money: 10000,
+        factories: [],
+        employees: [],
+        products: [],
+      };
+
+      // Add the company to the game world.
+      game.companies.push(company);
+
+      // Redirect the user to the game page.
+      window.location.href = "/game";
+    }
+
+    // Add an event listener to the create company button.
+    const createCompanyButton = document.getElementById("create-company");
+    createCompanyButton.addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent the form from submitting.
+      createCompany(); // Call the createCompany() function to create a new company.
+    });
+  </script>
+</body>
+</html>
